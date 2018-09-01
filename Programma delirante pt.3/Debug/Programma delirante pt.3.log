@@ -1,0 +1,3 @@
+﻿  inventario.c
+c:\users\musso\source\repos\programma delirante pt.3\programma delirante pt.3\inventario.c(48): warning C4477: 'printf': con la stringa di formato '%d' è necessario un argomento di tipo 'int', ma il tipo dell'argomento variadic 3 è 'int *'
+  Programma delirante pt.3.vcxproj -> C:\Users\musso\source\repos\Programma delirante pt.3\Debug\Programma delirante pt.3.exe
