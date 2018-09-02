@@ -19,11 +19,12 @@ per gestire diversi listini di articoli. Implementare inoltre la possibilità di
 il nome da dare il file (sia in caricamento sia in salvataggio).
 Avvisare naturalmente l'utente se tenta di caricare un file che non esiste o se sta per sbaglio sovrascrivendo un file già esistente.*/
 
+Listino NuovoArticolo(Listino listino);
 
 int main()
 {	
-	int scelta = 0, ID = 0;
-	listino Listino = NULL;
+	int scelta = 0;
+	Listino *listino = NULL;
 
 	printf("-----------------------MENU-----------------------\n"
 			  "Benvenuto nella gestione del magazzino!\n"
@@ -40,8 +41,7 @@ int main()
 		switch (scelta)
 		{
 		case 1:
-			InserisciArticolo(Listino, "Nome", "Descrizione", "Marca", 20.50, ID);
-			ID++;
+			listino = NuovoArticolo(listino);
 			break;
 
 		case 2:
@@ -55,4 +55,23 @@ int main()
 	}
 
 	system("PAUSE");
+}
+
+
+Listino NuovoArticolo(Listino listino)
+{
+	char nome[SIZE], descrizione[SIZE], marca[SIZE];
+	float prezzo;
+	rewind(stdin);
+
+	printf("Inserisci nome: ");
+	gets_s(nome, SIZE);
+	printf("Inserisci descrizione: ");
+	gets_s(descrizione, SIZE);
+	printf("Inserisci marca: ");
+	gets_s(marca, SIZE);
+	printf("Inserisci prezzo: ");
+	scanf("%f", &prezzo);
+
+	return Inserimento(listino, nome, descrizione, marca, prezzo);
 }
