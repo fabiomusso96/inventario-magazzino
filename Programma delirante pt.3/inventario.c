@@ -1,23 +1,26 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdlib.h>
 #include "inventario.h"
+
+#ifndef SIZE 
+#define SIZE 100
+#endif
 
 typedef struct Articolo
 {
 	char *Nome, *Descrizione, *Marca;
 	float Prezzo;
-} Articolo;
+}*Articolo;
 
 typedef struct Listino
 {
-	articolo articolo;
+	Articolo lista;
 	struct Listino *next;
-} Listino;
+}*Listino;
 
-// Convenzione! I tipi che iniziano con la lettera maiuscola sono i tipi concreti, quelli che iniziano con la minuscola, sono puntatori!
-
-articolo InserisciArticolo(char nome[], char descrizione[], char marca[], float prezzo)
+Articolo *InserisciArticolo(char nome[], char descrizione[], char marca[], float prezzo)
 {
-	articolo articolo = malloc(sizeof(Articolo));
+	Articolo articolo = malloc(sizeof(Articolo));
 	articolo->Nome = nome;
 	articolo->Descrizione = descrizione;
 	articolo->Marca = marca;
@@ -26,13 +29,13 @@ articolo InserisciArticolo(char nome[], char descrizione[], char marca[], float 
 	return articolo;
 }
 
-listino Inserimento(listino listino, char nome[], char descrizione[], char marca[], float prezzo)
+Listino *Inserimento(Listino listino, char nome[], char descrizione, char marca, float prezzo)
 {
 	if (listino == NULL)
 	{
 		listino = malloc(sizeof(Listino));
 		listino->next = NULL;
-		listino->articolo = InserisciArticolo(nome, descrizione, marca, prezzo);
+		listino->lista = InserisciArticolo(nome, descrizione, marca, prezzo);
 		return listino;
 	}
 
