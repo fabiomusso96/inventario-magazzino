@@ -1,3 +1,19 @@
 ﻿  inventario.c
-c:\users\musso\source\repos\programma delirante pt.3\programma delirante pt.3\inventario.c(48): warning C4477: 'printf': con la stringa di formato '%d' è necessario un argomento di tipo 'int', ma il tipo dell'argomento variadic 3 è 'int *'
+c:\users\musso\source\repos\programma delirante pt.3\programma delirante pt.3\inventario.c(29): warning C4047: 'return': 'Articolo *' differisce da 'Articolo' nei livelli di riferimento indiretto
+c:\users\musso\source\repos\programma delirante pt.3\programma delirante pt.3\inventario.c(38): warning C4047: 'funzione': 'char *' differisce da 'char' nei livelli di riferimento indiretto
+c:\users\musso\source\repos\programma delirante pt.3\programma delirante pt.3\inventario.c(38): warning C4024: 'InserisciArticolo': tipi diversi tra il parametro 2 formale e quello effettivo
+c:\users\musso\source\repos\programma delirante pt.3\programma delirante pt.3\inventario.c(38): warning C4024: 'InserisciArticolo': tipi diversi tra il parametro 3 formale e quello effettivo
+c:\users\musso\source\repos\programma delirante pt.3\programma delirante pt.3\inventario.c(38): warning C4047: '=': 'Articolo' differisce da 'Articolo *' nei livelli di riferimento indiretto
+c:\users\musso\source\repos\programma delirante pt.3\programma delirante pt.3\inventario.c(39): warning C4047: 'return': 'Listino *' differisce da 'Listino' nei livelli di riferimento indiretto
+c:\users\musso\source\repos\programma delirante pt.3\programma delirante pt.3\inventario.c(42): warning C4047: '=': 'Listino' differisce da 'Listino *' nei livelli di riferimento indiretto
+c:\users\musso\source\repos\programma delirante pt.3\programma delirante pt.3\inventario.c(43): warning C4047: 'return': 'Listino *' differisce da 'Listino' nei livelli di riferimento indiretto
+  programmadelirante.c
+c:\users\musso\source\repos\programma delirante pt.3\programma delirante pt.3\programmadelirante.c(44): warning C4047: 'funzione': 'Listino' differisce da 'Listino *' nei livelli di riferimento indiretto
+c:\users\musso\source\repos\programma delirante pt.3\programma delirante pt.3\programmadelirante.c(44): warning C4024: 'NuovoArticolo': tipi diversi tra il parametro 1 formale e quello effettivo
+c:\users\musso\source\repos\programma delirante pt.3\programma delirante pt.3\programmadelirante.c(44): warning C4047: '=': 'Listino *' differisce da 'Listino' nei livelli di riferimento indiretto
+c:\users\musso\source\repos\programma delirante pt.3\programma delirante pt.3\programmadelirante.c(76): warning C4047: 'funzione': 'char' differisce da 'char [100]' nei livelli di riferimento indiretto
+c:\users\musso\source\repos\programma delirante pt.3\programma delirante pt.3\programmadelirante.c(76): warning C4024: 'Inserimento': tipi diversi tra il parametro 3 formale e quello effettivo
+c:\users\musso\source\repos\programma delirante pt.3\programma delirante pt.3\programmadelirante.c(76): warning C4024: 'Inserimento': tipi diversi tra il parametro 4 formale e quello effettivo
+c:\users\musso\source\repos\programma delirante pt.3\programma delirante pt.3\programmadelirante.c(76): warning C4047: 'return': 'Listino' differisce da 'Listino *' nei livelli di riferimento indiretto
+  Generazione del codice in corso...
   Programma delirante pt.3.vcxproj -> C:\Users\musso\source\repos\Programma delirante pt.3\Debug\Programma delirante pt.3.exe

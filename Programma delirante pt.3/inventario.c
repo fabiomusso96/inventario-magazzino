@@ -1,7 +1,5 @@
 #define _CRT_SECURE_NO_WARNINGS
-#include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 #include "inventario.h"
 
 #ifndef SIZE 
@@ -10,59 +8,37 @@
 
 typedef struct Articolo
 {
-	char Nome[SIZE], Descrizione[SIZE], Marca[SIZE], Prezzo[SIZE];
-	int ID;
-	struct Articolo *next;
-}*articolo;
+	char *Nome, *Descrizione, *Marca;
+	float Prezzo;
+}*Articolo;
 
 typedef struct Listino
 {
-	articolo lista;
-	int PrezzoListino;
-	char NomeNegozio[SIZE];
+	Articolo lista;
 	struct Listino *next;
-}*listino;
+}*Listino;
 
-listino InserisciArticolo(listino Listino, int ID)
+Articolo *InserisciArticolo(char nome[], char descrizione[], char marca[], float prezzo)
 {
-	Listino = (listino)malloc(sizeof(listino));
-	Listino->lista = (articolo)malloc(sizeof(articolo));
-	Listino->next = NULL;
-	Listino->lista->next = NULL;
-	Listino->lista->ID = ID;
-	rewind(stdin);
+	Articolo articolo = malloc(sizeof(Articolo));
+	articolo->Nome = nome;
+	articolo->Descrizione = descrizione;
+	articolo->Marca = marca;
+	articolo->Prezzo = prezzo;
 
-	printf("Inserisci nome: ");
-	gets_s(Listino->lista->Nome, SIZE);
-	printf("Inserisci Descrizione: ");
-	gets_s(Listino->lista->Descrizione, SIZE);
-	printf("Inserisci marca: ");
-	gets_s(Listino->lista->Marca, SIZE);
-	printf("Inserisci prezzo: ");
-	gets_s(Listino->lista->Prezzo, SIZE);
-	printf("Inserisci nome negozio: ");
-	gets_s(Listino->NomeNegozio, SIZE);
-
-	Inserimento(Listino);
-
-	printf("L'inserimento e' stato completato!\n"
-			"L'articolo %s %s e' stato inserito nel listino al prezzo di %d presso il negozio %s.\n\n", &Listino->lista->Marca, &Listino->lista->Nome, &Listino->PrezzoListino, &Listino->NomeNegozio);
-
-	return Listino;
+	return articolo;
 }
 
-void Inserimento(listino Listino)
+Listino *Inserimento(Listino listino, char nome[], char descrizione, char marca, float prezzo)
 {
-	listino nodo = NULL;
-	if (nodo == NULL)
+	if (listino == NULL)
 	{
-		nodo = Listino;
-		nodo->next = NULL;
-		nodo->lista->Prezzo[nodo->PrezzoListino];
-		nodo->PrezzoListino[nodo->NomeNegozio];
-		return;
+		listino = malloc(sizeof(Listino));
+		listino->next = NULL;
+		listino->lista = InserisciArticolo(nome, descrizione, marca, prezzo);
+		return listino;
 	}
-	Inserimento(Listino->next);
-	return;
-}
 
+	listino = Inserimento(listino->next, nome, descrizione, marca, prezzo);
+	return listino;
+}
