@@ -1,12 +1,9 @@
-#define _CRT_SECURE_NO_WARNINGS
 #pragma once
 
-#ifndef SIZE 
-#define SIZE 100
-#endif
+typedef struct Articolo *articolo;
+typedef struct Listino *listino;
 
-typedef struct Articolo *Articolo;
-typedef struct Listino *Listino;
+// Convenzione! Tipi che iniziano con lettera maiuscola: tipo concreto. Tipi che iniziano con lettera minuscola: tipo puntato.
 
-Articolo *InserisciArticolo(char nome[], char descrizione[], char marca[], float prezzo);
-Listino *Inserimento(Listino listino, char nome[], char descrizione, char marca, float prezzo);
+articolo InserisciArticolo(char nome[], char descrizione[], char marca[], float prezzo);
+listino Inserimento(listino listino, char nome[], char descrizione[], char marca[], float prezzo);

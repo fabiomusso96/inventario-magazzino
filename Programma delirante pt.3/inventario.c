@@ -1,41 +1,36 @@
-#define _CRT_SECURE_NO_WARNINGS
 #include <stdlib.h>
 #include "inventario.h"
 
-#ifndef SIZE 
-#define SIZE 100
-#endif
-
 typedef struct Articolo
 {
-	char *Nome, *Descrizione, *Marca;
+	char *nome, *descrizione, *marca;
 	float Prezzo;
-}*Articolo;
+} Articolo;
 
 typedef struct Listino
 {
-	Articolo lista;
+	articolo articolo;
 	struct Listino *next;
-}*Listino;
+} Listino;
 
-Articolo *InserisciArticolo(char nome[], char descrizione[], char marca[], float prezzo)
+articolo InserisciArticolo(char nome[], char descrizione[], char marca[], float prezzo)
 {
-	Articolo articolo = malloc(sizeof(Articolo));
-	articolo->Nome = nome;
-	articolo->Descrizione = descrizione;
-	articolo->Marca = marca;
+	articolo articolo = malloc(sizeof(Articolo));
+	articolo->nome = nome;
+	articolo->descrizione = descrizione;
+	articolo->marca = marca;
 	articolo->Prezzo = prezzo;
 
 	return articolo;
 }
 
-Listino *Inserimento(Listino listino, char nome[], char descrizione, char marca, float prezzo)
+listino Inserimento(listino listino, char nome[], char descrizione[], char marca[], float prezzo)
 {
 	if (listino == NULL)
 	{
 		listino = malloc(sizeof(Listino));
 		listino->next = NULL;
-		listino->lista = InserisciArticolo(nome, descrizione, marca, prezzo);
+		listino->articolo = InserisciArticolo(nome, descrizione, marca, prezzo);
 		return listino;
 	}
 
