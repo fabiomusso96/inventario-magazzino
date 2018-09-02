@@ -1,12 +1,8 @@
 ﻿#define _CRT_SECURE_NO_WARNINGS
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include "inventario.h"
+#define BUFFER 255
 
-#ifndef SIZE 
-#define SIZE 100
-#endif
+#include <stdio.h>
+#include "inventario.h"
 
 
 /*Creare una libreria in C che consenta la gestione di un inventario di magazzino.
@@ -19,12 +15,12 @@ per gestire diversi listini di articoli. Implementare inoltre la possibilità di
 il nome da dare il file (sia in caricamento sia in salvataggio).
 Avvisare naturalmente l'utente se tenta di caricare un file che non esiste o se sta per sbaglio sovrascrivendo un file già esistente.*/
 
-Listino NuovoArticolo(Listino listino);
+listino NuovoArticolo(listino listino);
 
 int main()
 {	
 	int scelta = 0;
-	Listino *listino = NULL;
+	listino listino = NULL;
 
 	printf("-----------------------MENU-----------------------\n"
 			  "Benvenuto nella gestione del magazzino!\n"
@@ -36,17 +32,15 @@ int main()
 	while (scelta != -1)
 	{
 		printf("La tua scelta: ");
-		scanf("%u", &scelta);
+		scanf("%d", &scelta);
 
 		switch (scelta)
 		{
 		case 1:
 			listino = NuovoArticolo(listino);
 			break;
-
 		case 2:
 			break;
-
 		case 3:
 			break;
 		default: printf("Comando non valido.\n");
@@ -58,18 +52,18 @@ int main()
 }
 
 
-Listino NuovoArticolo(Listino listino)
+listino NuovoArticolo(listino listino)
 {
-	char nome[SIZE], descrizione[SIZE], marca[SIZE];
+	char nome[BUFFER], descrizione[BUFFER], marca[BUFFER];
 	float prezzo;
 	rewind(stdin);
 
 	printf("Inserisci nome: ");
-	gets_s(nome, SIZE);
+	gets_s(nome, BUFFER);
 	printf("Inserisci descrizione: ");
-	gets_s(descrizione, SIZE);
+	gets_s(descrizione, BUFFER);
 	printf("Inserisci marca: ");
-	gets_s(marca, SIZE);
+	gets_s(marca, BUFFER);
 	printf("Inserisci prezzo: ");
 	scanf("%f", &prezzo);
 
